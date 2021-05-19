@@ -1,1 +1,0 @@
-SELECT * FROM projet5.products;
