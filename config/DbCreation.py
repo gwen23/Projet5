@@ -1,9 +1,5 @@
 import mysql.connector
 
-from constants import CATEGORIES
-from Classes import Category, Product
-from APIreq import DataCollect
-
 DB_CATEGORIES = 'categories'
 DB_PRODUCTS = 'products'
 DB_SUBSTITUTES = 'substitutes'
@@ -11,7 +7,10 @@ DB_SUBSTITUTES = 'substitutes'
 
 class DbCreate:
     def __init__(self):
-        self.cnx = mysql.connector.connect(user='projet5', password='projet5', host='localhost', database='projet5')
+        self.cnx = mysql.connector.connect(user='root',
+                                           password='',
+                                           host='localhost',
+                                           database='projet5')
         self.cursor = self.cnx.cursor()
 
     def drop_tables(self):
@@ -31,9 +30,12 @@ class DbCreate:
         self.cursor.execute(
             "CREATE TABLE IF NOT EXISTS`products` ("
             "  `idproducts` int NOT NULL AUTO_INCREMENT,"
-            "  `product_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,"
-            "  `product_nutrition_grades` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,"
-            "  `product_link` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,"
+            "  `product_name` varchar(255) CHARACTER SET"
+            " utf8 COLLATE utf8_general_ci NOT NULL,"
+            "  `product_nutrition_grades` char(1) CHARACTER SET"
+            " utf8 COLLATE utf8_general_ci NOT NULL,"
+            "  `product_link` text CHARACTER SET utf8 COLLATE"
+            " utf8_general_ci NOT NULL,"
             "  `product_stores` text,"
             "  `category_id` text NOT NULL,"
             "  PRIMARY KEY (`idproducts`)"
@@ -46,8 +48,10 @@ class DbCreate:
             "  `substitute_id` int NOT NULL,"
             "  KEY `product_id_idx` (`product_id`),"
             "  KEY `substitute_id_idx` (`substitute_id`),"
-            "  CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `products` (`idproducts`),"
-            "  CONSTRAINT `substitute_id` FOREIGN KEY (`substitute_id`) REFERENCES `products` (`idproducts`)"
+            "  CONSTRAINT `product_id` FOREIGN KEY (`product_id`)"
+            " REFERENCES `products` (`idproducts`),"
+            "  CONSTRAINT `substitute_id` FOREIGN KEY (`substitute_id`)"
+            " REFERENCES `products` (`idproducts`)"
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
         )
 

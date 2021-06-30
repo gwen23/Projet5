@@ -1,6 +1,3 @@
-use Projet5;
-
-
 CREATE TABLE IF NOT EXISTS `categories` (
     `idcategories` smallint NOT NULL,
     `category_name` varchar(25) NOT NULL,
