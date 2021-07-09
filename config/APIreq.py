@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
 import mysql.connector
 import requests
 from constants import CATEGORIES, PRODUCTS_NUMBERS

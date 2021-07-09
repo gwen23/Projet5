@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
 import mysql.connector
 from DbCreation import DbCreate
 
@@ -20,7 +23,7 @@ class Menu:
             print("Choose a new category : 0 \n"
                   "Quit                  : 1 \n"
                   "Consult archived data : 2 \n")
-            next_step = input("What do you want to do?")
+            next_step = input("What do you want to do? ")
             try:
                 str(next_step)
                 if next_step == "0":
@@ -63,7 +66,7 @@ class Program:
             print('{} : {}'.format(idcategories, category_name))
             c_choices.append(idcategories)
         while True:
-            c_choice = input("Your choice:")
+            c_choice = input("Your choice: ")
             try:
                 int(c_choice)
             except ValueError:
@@ -97,7 +100,8 @@ class Program:
                                       name))
 
         while True:
-            p_choice = input("Please choose a product number ")
+
+            p_choice = input("Please choose a product number: ")
             get_product_nutrition_grades = ('SELECT'
                                             ' product_nutrition_grades'
                                             ' FROM products WHERE'
@@ -147,7 +151,7 @@ class Program:
             if s_choices is None:
                 print("There is no substitute")
             else:
-                print("number {}: {}, with a '{}' nutrition_grade. \n "
+                print("number {}: {}, with a '{}' nutrition_grade.  "
                       "          can be found in store(s): {}, \n"
                       "           for more information follow this link: {}"
                       .format(product_number,
@@ -174,14 +178,14 @@ class Program:
 
         save = ()
         while save not in ["Yes", "No"]:
-            save = input("Do you want to save your choice? Yes or No")
+            save = input("Do you want to save your choice? Yes or No: ")
 
         if save == "Yes":
             query = ('INSERT into substitutes (product_id, substitute_id) '
                      'VALUES ({}, {})'.format(p_choice, s_choice))
             self.cursor.execute(query)
             self.cnx.commit()
-            print("Choice recorded.")
+            print("Choice recorded. \n")
             mn.menu()
 
         if save == "No":
@@ -215,7 +219,7 @@ class Program:
             product_id = subst[i][0]
             product_name = subst[i][1]
             print("(product_id {}/ {}) replaced by"
-                  " (substitute_id/name : {}/{})"
+                  " (substitute_id/name : {}/{}) \n"
                   .format(product_id, product_name,
                           substitute_id, substitute_name))
 
