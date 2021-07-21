@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
 class Category:
     """OpenFoodFacts Categories"""
     def __init__(self, idcategories, category_name, url):
