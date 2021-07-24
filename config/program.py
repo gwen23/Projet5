@@ -172,7 +172,7 @@ class Program:
                 continue
 
             except ValueError:
-                print("You need to choose a subtsitute number.")
+                print("You need to choose a substitute number.")
                 print(19)
                 continue
 

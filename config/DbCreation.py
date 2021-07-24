@@ -47,13 +47,11 @@ class DbCreate:
 
         self.cursor.execute(
             "CREATE TABLE IF NOT EXISTS`substitutes` ("
-            "  `product_id` int NOT NULL,"
+            "  `product_id` int NOT NULL AUTO_INCREMENT ,"
             "  `substitute_id` int NOT NULL,"
             "  KEY `product_id_idx` (`product_id`),"
             "  KEY `substitute_id_idx` (`substitute_id`),"
             "  CONSTRAINT `product_id` FOREIGN KEY (`product_id`)"
-            " REFERENCES `products` (`idproducts`),"
-            "  CONSTRAINT `substitute_id` FOREIGN KEY (`substitute_id`)"
             " REFERENCES `products` (`idproducts`)"
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
         )
